@@ -6,6 +6,15 @@ require_relative "string_calculator/version"
 module StringCalculator
   class Error < StandardError; end
 
+  VALID_INPUT_FORMAT = /\A-?\d+(,-?\d+)*\z/
+
+  def self.validate_input_format(numbers)
+    # number should contain only digits, and have delimiter between them
+    raise Error, "invalid input format" unless numbers.match?(VALID_INPUT_FORMAT)
+
+    numbers
+  end
+
   def self.detect_negatives(numbers)
     negatives = numbers.split(",").select { |number| number.to_i.negative? }
     raise Error, "negatives not allowed: #{negatives.join(", ")}" if negatives.any?
@@ -22,7 +31,10 @@ module StringCalculator
   end
 
   def self.sanitize_input(numbers)
-    numbers.gsub("\n", ",")
+    numbers = numbers.gsub("\n", ",")
+    return "" if numbers.empty?
+
+    validate_input_format numbers
   end
 
   def self.sum(numbers)
