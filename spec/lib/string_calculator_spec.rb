@@ -12,5 +12,15 @@ RSpec.describe StringCalculator do
     it "returns 3 for '1,2'" do
       expect(StringCalculator.add("1,2")).to eq(3)
     end
+    
+    context "it can handle n numbers" do
+      it "returns 6 for '1,2,3'" do
+        expect(StringCalculator.add("1,2,3")).to eq(6)
+      end
+
+      it "returns 10 for '1,2,3,4'" do
+        expect(StringCalculator.add("1,2,3,4")).to eq(10)
+      end
+    end
   end
 end
