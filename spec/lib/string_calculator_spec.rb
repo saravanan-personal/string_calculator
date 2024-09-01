@@ -23,6 +23,12 @@ RSpec.describe StringCalculator do
       end
     end
     
+    context "it can handle more than one digit" do
+      it "returns 101 for '100,1'" do
+        expect(StringCalculator.add("100,1")).to eq(101)
+      end
+    end
+    
     context "it can handle new lines" do
       it "returns 6 for '1\n2,3'" do
         expect(StringCalculator.add("1\n2,3")).to eq(6)
