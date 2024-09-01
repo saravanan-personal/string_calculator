@@ -6,13 +6,12 @@ It supports adding numbers separated by commas, newlines, and custom delimiters.
 
 To install the gem and add it to your application's Gemfile, execute:
 ```bash
-bundle add string_calculator
+bundle add string_calculator --git https://github.com/saravanan-personal/string_calculator.git
 ```
 
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-```bash
-gem install string_calculator
+If bundler is not being used to manage dependencies, add this line to your application's Gemfile:
+```ruby
+gem 'string_calculator', git: 'https://github.com/saravanan-personal/string_calculator.git'
 ```
 
 ## Usage
