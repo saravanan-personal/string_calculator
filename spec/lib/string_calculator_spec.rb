@@ -32,5 +32,15 @@ RSpec.describe StringCalculator do
         expect(StringCalculator.add("1\n2\n3,4")).to eq(10)
       end
     end
+    
+    context "it supports dynamic delimiters" do
+      it "returns 3 for '//;\n1;2'" do
+        expect(StringCalculator.add("//;\n1;2")).to eq(3)
+      end
+
+      it "returns 6 for '//@\n1@2@3'" do
+        expect(StringCalculator.add("//@\n1@2@3")).to eq(6)
+      end
+    end
   end
 end
