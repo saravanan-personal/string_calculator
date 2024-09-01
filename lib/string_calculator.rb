@@ -7,6 +7,6 @@ module StringCalculator
   class Error < StandardError; end
   
   def self.add(numbers)
-    numbers.split(",").map(&:to_i).sum
+    numbers.gsub("\n", ",").split(",").map(&:to_i).sum
   end
 end
