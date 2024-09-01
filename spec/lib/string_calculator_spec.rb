@@ -22,5 +22,15 @@ RSpec.describe StringCalculator do
         expect(StringCalculator.add("1,2,3,4")).to eq(10)
       end
     end
+    
+    context "it can handle new lines" do
+      it "returns 6 for '1\n2,3'" do
+        expect(StringCalculator.add("1\n2,3")).to eq(6)
+      end
+
+      it "returns 10 for '1\n2\n3,4'" do
+        expect(StringCalculator.add("1\n2\n3,4")).to eq(10)
+      end
+    end
   end
 end
