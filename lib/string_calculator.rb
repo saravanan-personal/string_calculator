@@ -2,7 +2,11 @@
 
 require_relative "string_calculator/version"
 
+# Module to perform string calculations
 module StringCalculator
   class Error < StandardError; end
-  # Your code goes here...
+  
+  def self.add(numbers)
+    numbers.split(",").map(&:to_i).sum
+  end
 end
