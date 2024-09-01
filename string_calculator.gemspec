@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   end
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+  spec.files = Dir['lib/**/*', 'LICENSE.txt', 'README.md']
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
